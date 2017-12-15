@@ -1,0 +1,29 @@
+{
+  "name": "clap-to-bookmark",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Simple extention to bookmark medium articles when clapping",
+  "icons": {
+    "16": "images/icon-16.png",
+    "128": "images/icon-128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "scripts": [
+      "scripts/chromereload.js",
+      "scripts/background.js"
+    ]
+  },
+  "permissions": [
+    "tabs"
+  ],
+  "content_scripts": [{
+        "matches": [
+            "*://medium.com/*"
+        ],
+        "js": [
+            "scripts/content.js"
+        ],
+        "all_frames":true
+    }]
+}
