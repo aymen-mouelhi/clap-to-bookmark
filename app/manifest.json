@@ -15,15 +15,18 @@
     ]
   },
   "permissions": [
-    "tabs"
+    "tabs",
+    "activeTab",
+    "background"
   ],
   "content_scripts": [{
         "matches": [
-            "*://medium.com/*"
+            "https://*/*"
         ],
         "js": [
             "scripts/content.js"
         ],
         "all_frames":true
-    }]
+    }],
+    "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'"
 }
